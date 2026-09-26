@@ -1,1 +1,587 @@
-<h1>Hello From Hansika</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal profile website">
+  <title>Your Name | Profile</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #444;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 70px);
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .hero h2 {
+      font-size: 24px;
+      font-weight: normal;
+      color: #2563eb;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      max-width: 650px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #2563eb;
+      color: #2563eb;
+    }
+
+    .btn-secondary:hover {
+      background: #eff6ff;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    /* About */
+    .about {
+      background: white;
+    }
+
+    .about-text {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      color: #555;
+      font-size: 17px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill h3 {
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+
+    .skill p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* Projects */
+    .projects {
+      background: white;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .project p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .project a {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    /* Experience */
+    .timeline {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-left: 4px solid #2563eb;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 5px;
+    }
+
+    .timeline-item .date {
+      color: #2563eb;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item p {
+      color: #666;
+    }
+
+    /* Contact */
+    .contact {
+      background: #111827;
+      color: white;
+      text-align: center;
+    }
+
+    .contact .section-title h2 {
+      color: white;
+    }
+
+    .contact .section-title p {
+      color: #9ca3af;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .contact-info a {
+      color: #93c5fd;
+      transition: 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: #0b1120;
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero h2 {
+        font-size: 20px;
+      }
+
+      section {
+        padding: 60px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">YOUR NAME</div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <!-- Replace this URL with your own photo -->
+      <img
+        class="profile-image"
+        src="https://via.placeholder.com/300"
+        alt="Your profile photo"
+      >
+
+      <h1>Your Name</h1>
+
+      <h2>Web Developer & Designer</h2>
+
+      <p>
+        I create modern, responsive and user-friendly digital experiences.
+        Welcome to my personal profile.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+        <a href="#projects" class="btn btn-secondary">View My Work</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>A little bit about who I am</p>
+      </div>
+
+      <div class="about-text">
+        <p>
+          Hello! I'm <strong>Your Name</strong>, a passionate developer
+          interested in building beautiful and useful websites and applications.
+          I enjoy learning new technologies, solving problems and turning ideas
+          into real-world projects.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>My Skills</h2>
+        <p>Technologies and areas I work with</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill">
+          <h3>HTML</h3>
+          <p>Semantic and accessible web pages</p>
+        </div>
+
+        <div class="skill">
+          <h3>CSS</h3>
+          <p>Responsive layouts and modern design</p>
+        </div>
+
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <p>Interactive web experiences</p>
+        </div>
+
+        <div class="skill">
+          <h3>React</h3>
+          <p>Modern component-based applications</p>
+        </div>
+
+        <div class="skill">
+          <h3>UI/UX</h3>
+          <p>Simple and user-friendly interfaces</p>
+        </div>
+
+        <div class="skill">
+          <h3>Git</h3>
+          <p>Version control and collaboration</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>My Projects</h2>
+        <p>Some things I've worked on</p>
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project">
+          <h3>Portfolio Website</h3>
+          <p>
+            A responsive personal portfolio website built using HTML,
+            CSS and JavaScript.
+          </p>
+          <a href="#" target="_blank">View Project →</a>
+        </div>
+
+        <div class="project">
+          <h3>Web Application</h3>
+          <p>
+            A modern web application designed to provide a simple
+            and intuitive user experience.
+          </p>
+          <a href="#" target="_blank">View Project →</a>
+        </div>
+
+        <div class="project">
+          <h3>Mobile App</h3>
+          <p>
+            An application concept focused on solving everyday
+            problems through technology.
+          </p>
+          <a href="#" target="_blank">View Project →</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>My professional journey</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Web Developer</h3>
+          <div class="date">2024 – Present</div>
+          <p>
+            Working on responsive websites, web applications and
+            digital products.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Junior Developer</h3>
+          <div class="date">2022 – 2024</div>
+          <p>
+            Developed websites and gained experience with modern
+            web development technologies.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Student / Learner</h3>
+          <div class="date">2020 – 2022</div>
+          <p>
+            Studied programming, web development and computer science.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Let's Connect</h2>
+        <p>Feel free to reach out to me</p>
+      </div>
+
+      <div class="contact-info">
+        <a href="mailto:you@example.com">
+          📧 you@example.com
+        </a>
+
+        <a href="https://github.com/" target="_blank">
+          GitHub
+        </a>
+
+        <a href="https://linkedin.com/" target="_blank">
+          LinkedIn
+        </a>
+
+        <a href="https://instagram.com/" target="_blank">
+          Instagram
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Your Name. All rights reserved.
+  </footer>
+
+</body>
+</html>
